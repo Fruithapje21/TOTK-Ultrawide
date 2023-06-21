@@ -1,7 +1,8 @@
 @echo off
-set /p "filename=Enter the filename of the Common.Product file without .blarc.zs (e.g. Common.Product.110.Nin_NX_NVN): "
+set /p "version=Enter game version (eg. 1.1.2): "
 set /p "aspect=Enter aspect ratio as float (e.g. 2.38889 for 3440x1440): "
 set /p "hud_pos=Enter HUD position ('center' or 'corner'): "
+set filename=Common.Product.110.Nin_NX_NVN
 
 cd /d %~dp0
 echo Clearing workspace
@@ -19,7 +20,7 @@ bin\ZSTD-Tool-1.0.1.exe d "%cd%\%filename%.blarc.zs" -o "%cd%\temp\%filename%.bl
 echo Unpacking %filename%.blarc
 bin\sarc_tool_x64_v0.5\sarc_tool.exe "%cd%\temp\%filename%.blarc" >nul 2>&1
 echo Applying UI Fixes
-bin\UIFIX.exe "%cd%\temp\%filename%" %aspect% %hud_pos%
+bin\UIFIX.exe "%cd%\temp\%filename%" %aspect% %hud_pos% %version%
 echo Repacking %filename%
 bin\sarc_tool_x64_v0.5\sarc_tool.exe "%cd%\temp\%filename%" >nul 2>&1
 ren "%cd%\temp\%filename%.blarc" "%filename%.blarc_old"
