@@ -71,6 +71,198 @@ for ii in range(len(versions)):
         f.write(f'{data[ii][1]} {float2hex(ratio)}\n')
         f.write(f'{data[ii][2]} {val2asm(ratio)}\n')
         f.write('@stop\n')
+        
+        if versions[ii] == '1.0.0':
+            f.write('\n')
+            content = f"""
+                // Scaling factor
+                @enabled
+                03774580 {float2hex(scaling_factor)}
+                @stop
+
+                // NPC Marker Fix
+                @enabled
+                01a8f18c DD947394 // bl #0x1CE5374
+                03774500 A01B40BD // ldr s0, [x29,#0x18]
+                03774504 E0C31FF8 // stur x0, [sp, #-4]
+                03774508 00000090 // adrp x0, #0
+                0377450c 018045BD // ldr s1, [x0, #0x580]
+                03774510 E0C35FF8 // ldur x0, [sp, #-4]
+                03774514 0008211E // fmul s0, s0, s1
+                03774518 A11F40BD // ldr s1, [x29, #0x1c]
+                0377451c C0035FD6 // ret
+                @stop
+
+                // NPC Text Balloon Fix
+                @enabled
+                01a93954 F3827394 // bl #0x1CE0BCC
+                03774520 802240BD // ldr s0, [x20, #0x20]
+                03774524 E0C31FF8 // stur x0, [sp, #-4]
+                03774528 00000090 // adrp x0, #0
+                0377452c 018045BD // ldr s1, [x0, #0x580]
+                03774530 E0C35FF8 // ldur x0, [sp, #-4]
+                03774534 0008211E // fmul s0, s0, s1
+                03774538 812640BD // ldr s1, [x20, #0x24]
+                0377453c C0035FD6 // ret
+                @stop
+
+                // Item Description Fix
+                @enabled
+                01a8e69c A9977394 // bl #0x1CE5EA4
+                03774540 E00B40BD // ldr s0, [sp, #0x8]
+                03774544 E0C31FF8 // stur x0, [sp, #-4]
+                03774548 00000090 // adrp x0, #0
+                0377454c 018045BD // ldr s1, [x0, #0x580]
+                03774550 E0C35FF8 // ldur x0, [sp, #-4]
+                03774554 0008211E // fmul s0, s0, s1
+                03774558 E10F40BD // ldr s1, [sp, #0xc]
+                0377455c C0035FD6 // ret
+                @stop
+
+                // Enemy Info Fix
+                @enabled
+                012ade68 BE199394 // bl #0x24C66F8
+                03774560 000140BD // ldr s0, [x8]
+                03774564 E0C31FF8 // stur x0, [sp, #-4]
+                03774568 00000090 // adrp x0, #0
+                0377456c 018045BD // ldr s1, [x0, #0x580]
+                03774570 E0C35FF8 // ldur x0, [sp, #-4]
+                03774574 0008211E // fmul s0, s0, s1
+                03774578 010540BD // ldr s1, [x8, #0x4]
+                0377457c C0035FD6 // ret
+                @stop
+                """
+            content_trimmed = trim(content)
+            f.write(content_trimmed)
+            f.write('\n')
+            
+        if versions[ii] == '1.1.0':
+            f.write('\n')
+            content = f"""
+                // Scaling factor
+                @enabled
+                036d1100 {float2hex(scaling_factor)}
+                @stop
+
+                // NPC Marker Fix
+                @enabled
+                01aec24c 8D936F94 // bl #0x1BE4E34
+                036d1080 A01B40BD // ldr s0, [x29,#0x18]
+                036d1084 E0C31FF8 // stur x0, [sp, #-4]
+                036d1088 00000090 // adrp x0, #0
+                036d108c 010041BD // ldr s1, [x0, #0x100]
+                036d1090 E0C35FF8 // ldur x0, [sp, #-4]
+                036d1094 0008211E // fmul s0, s0, s1
+                036d1098 A11F40BD // ldr s1, [x29, #0x1c]
+                036d109c C0035FD6 // ret
+                @stop
+
+                // NPC Text Balloon Fix
+                @enabled
+                01af0a2c 9D816F94 // bl #0x1BE0674
+                036d10a0 802240BD // ldr s0, [x20, #0x20]
+                036d10a4 E0C31FF8 // stur x0, [sp, #-4]
+                036d10a8 00000090 // adrp x0, #0
+                036d10ac 010041BD // ldr s1, [x0, #0x100]
+                036d10b0 E0C35FF8 // ldur x0, [sp, #-4]
+                036d10b4 0008211E // fmul s0, s0, s1
+                036d10b8 812640BD // ldr s1, [x20, #0x24]
+                036d10bc C0035FD6 // ret
+                @stop
+
+                // Item Description Fix
+                @enabled
+                01aeb644 9F966F94 // bl #0x1BE5A7C
+                036d10c0 E10B40BD // ldr s1, [sp, #0x8]
+                036d10c4 E0C31FF8 // stur x0, [sp, #-4]
+                036d10c8 00000090 // adrp x0, #0
+                036d10cc 000041BD // ldr s0, [x0, #0x100]
+                036d10d0 E0C35FF8 // ldur x0, [sp, #-4]
+                036d10d4 2108201E // fmul s1, s1, s0
+                036d10d8 E00F40BD // ldr s0, [sp, #0xc]
+                036d10dc C0035FD6 // ret
+                @stop
+
+                // Enemy Info Fix
+                @enabled
+                012e5a18 B2AD8F94 // bl #0x23EB6C8
+                036d10e0 000140BD // ldr s0, [x8]
+                036d10e4 E0C31FF8 // stur x0, [sp, #-4]
+                036d10e8 00000090 // adrp x0, #0
+                036d10ec 010041BD // ldr s1, [x0, #0x100]
+                036d10f0 E0C35FF8 // ldur x0, [sp, #-4]
+                036d10f4 0008211E // fmul s0, s0, s1
+                036d10f8 010540BD // ldr s1, [x8, #0x4]
+                036d10fc C0035FD6 // ret
+                @stop
+                """
+            content_trimmed = trim(content)
+            f.write(content_trimmed)
+            f.write('\n')        
+            
+        if versions[ii] == '1.1.1':
+            f.write('\n')
+            content = f"""
+                // Scaling factor
+                @enabled
+                036d9f60 {float2hex(scaling_factor)}
+                @stop
+
+                // NPC Marker Fix
+                @enabled
+                01ae9b14 F3C06F94 // bl #0x1BF03CC
+                036d9ee0 A01B40BD // ldr s0, [x29,#0x18]
+                036d9ee4 E0C31FF8 // stur x0, [sp, #-4]
+                036d9ee8 00000090 // adrp x0, #0
+                036d9eec 01604FBD // ldr s1, [x0, #0xf60]
+                036d9ef0 E0C35FF8 // ldur x0, [sp, #-4]
+                036d9ef4 0008211E // fmul s0, s0, s1
+                036d9ef8 A11F40BD // ldr s1, [x29, #0x1c]
+                036d9efc C0035FD6 // ret
+                @stop
+
+                // NPC Text Balloon Fix
+                @enabled
+                01aee304 FFAE6F94 // bl #0x1BEBBFC
+                036d9f00 802240BD // ldr s0, [x20, #0x20]
+                036d9f04 E0C31FF8 // stur x0, [sp, #-4]
+                036d9f08 00000090 // adrp x0, #0
+                036d9f0c 01604FBD // ldr s1, [x0, #0xf60]
+                036d9f10 E0C35FF8 // ldur x0, [sp, #-4]
+                036d9f14 0008211E // fmul s0, s0, s1
+                036d9f18 812640BD // ldr s1, [x20, #0x24]
+                036d9f1c C0035FD6 // ret
+                @stop
+
+                // Item Description Fix
+                @enabled
+                01ae8f0c 05C46F94 // bl #0x1BF1014
+                036d9f20 E10B40BD // ldr s1, [sp, #0x8]
+                036d9f24 E0C31FF8 // stur x0, [sp, #-4]
+                036d9f28 00000090 // adrp x0, #0
+                036d9f2c 00604FBD // ldr s0, [x0, #0xf60]
+                036d9f30 E0C35FF8 // ldur x0, [sp, #-4]
+                036d9f34 2108201E // fmul s1, s1, s0
+                036d9f38 E00F40BD // ldr s0, [sp, #0xc]
+                036d9f3c C0035FD6 // ret
+                @stop
+
+                // Enemy Info Fix
+                @enabled
+                012e3614 4BDA8F94 // bl #0x23F692C
+                036d9f40 000140BD // ldr s0, [x8]
+                036d9f44 E0C31FF8 // stur x0, [sp, #-4]
+                036d9f48 00000090 // adrp x0, #0
+                036d9f4c 01604FBD // ldr s1, [x0, #0xf60]
+                036d9f50 E0C35FF8 // ldur x0, [sp, #-4]
+                036d9f54 0008211E // fmul s0, s0, s1
+                036d9f58 010540BD // ldr s1, [x8, #0x4]
+                036d9f5c C0035FD6 // ret
+                @stop
+                """
+            content_trimmed = trim(content)
+            f.write(content_trimmed)
+            f.write('\n')        
 
         if versions[ii] == '1.1.2':
             f.write('\n')
@@ -79,7 +271,7 @@ for ii in range(len(versions)):
                 @enabled
                 036c9b00 {float2hex(scaling_factor)}
                 @stop
-                
+
                 // NPC Marker Fix
                 @enabled
                 01ae0440 90A56F94 // bl #0x1BE9640
@@ -92,7 +284,7 @@ for ii in range(len(versions)):
                 036c9a98 A11F40BD // ldr s1, [x29, #0x1c]
                 036c9a9c C0035FD6 // ret
                 @stop
-                
+
                 // NPC Text Balloon Fix
                 @enabled
                 01ae4c24 9F936F94 // bl #0x1BE4E7C
@@ -105,7 +297,7 @@ for ii in range(len(versions)):
                 036c9ab8 812640BD // ldr s1, [x20, #0x24]
                 036c9abc C0035FD6 // ret
                 @stop
-                
+
                 // Item Description Fix
                 @enabled
                 01adf838 A2A86F94 // bl #0x1BEA288
@@ -118,7 +310,7 @@ for ii in range(len(versions)):
                 036c9ad8 E00F40BD // ldr s0, [sp, #0xc]
                 036c9adc C0035FD6 // ret
                 @stop
-                
+
                 // Enemy Info Fix
                 @enabled
                 012c2418 B21D9094 // bl #0x24076C8
