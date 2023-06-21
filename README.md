@@ -2,7 +2,7 @@
 A tool that generates the necessary exefs and romfs files to play the game in ultrawide (>16:9) aspect ratios.
 ## Usage
 1. Download the [latest release](https://github.com/Fruithapje21/TOTK-Ultrawide/releases/latest)
-2. Run the `CustomAspect.bat` file
+2. Run the `TOTK-Ultrawide.bat` file
 3. Follow the instructions
 4. Wait for the script to finish
 5. Copy the contents of the Result folder to your mods folder
