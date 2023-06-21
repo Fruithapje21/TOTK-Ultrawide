@@ -14,7 +14,7 @@ This tool makes it easy to merge the UI fixes with other mods that change the `C
 ## How to build
 Compile the files `/src/UIFIX.py` and `/src/pchtxtCreator.py` into an executable using pyinstaller and place them inside the `/bin` folder.
 ## Known issues
-* UI elements belonging to 3D game objects (NPC text balloons, enemy health bars, item descriptions, etc.) are still stretched. (Fixed for version 1.1.2)
+* UI elements belonging to 3D game objects (NPC text balloons, enemy health bars, item descriptions, etc.) are stretched. (Fixed for game version 1.1.2)
 * Pre-rendered cutscenes play stretched.
 * In the quest menu, part of the map is duplicated.  
 * Pictures taken with the in-game camera are squished.  
