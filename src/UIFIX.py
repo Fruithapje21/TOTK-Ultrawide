@@ -6,6 +6,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('input_dir')
 parser.add_argument('aspect_ratio', type=float)
 parser.add_argument('HUD_pos', choices={'center', 'corner'})
+parser.add_argument('version')
 args = parser.parse_args()
 
 ratio = args.aspect_ratio
@@ -30,12 +31,13 @@ file_names.remove('TitleMenuBG_00.bflyt')
 file_names.remove('PaMap_00.bflyt')
 file_names.remove('EventFade_00.bflyt')
 file_names.remove('EventFadeWipe_00.bflyt')
-file_names.remove('AttentionLockOn_00.bflyt')
-file_names.remove('EnemyInfo_00.bflyt')
-file_names.remove('BalloonMessage_00.bflyt')
-file_names.remove('AttentionBalloon_00.bflyt')
 file_names.remove('CameraShutter_00.bflyt')
 
+if args.version not in ['1.1.2']:
+    file_names.remove('AttentionLockOn_00.bflyt')
+    file_names.remove('AttentionBalloon_00.bflyt')
+    file_names.remove('BalloonMessage_00.bflyt')
+    file_names.remove('EnemyInfo_00.bflyt')
 
 for name in file_names:
     file_loc = blyt_folder + '\\' + name
