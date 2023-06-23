@@ -10,7 +10,7 @@ A tool that generates the necessary exefs and romfs files to play the game in ul
    
 You ned to have .NET 7 Runtime installed in order to run the program.
 ## Pre-made mods
-In case you have a common (ultrawide) aspect ratio, you can likely find a pre-made version in the '/mods' folder. It curretly includes mods for 18/9, 20/9, 21.5/9, 32/9 and 48/9.
+In case you have a common (ultrawide) aspect ratio, you can likely find a pre-made version in the `/mods` folder. It curretly includes mods for 18/9, 20/9, 21.5/9, 32/9 and 48/9.
 ## Merging mods
 This tool makes it easy to merge the UI fixes with other mods that change the `Common.Product` file such as controllor mods. Simply replace the `Common.Product` file with the one from the controller mod and run the tool as normal. Do not forget to copy over the `Font` folder to the `\Result\...\romfs` folder created by the program.
 ## How to build
