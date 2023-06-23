@@ -18,7 +18,9 @@ Compile the files `/src/UIFIX.py` and `/src/pchtxtCreator.py` into an executable
 ## Known issues
 * Pre-rendered cutscenes play stretched.
 * In the quest menu, part of the map is duplicated.  
-* Pictures taken with the in-game camera are squished.  
+* Pictures taken with the in-game camera are squished.
+## Additional note
+The `/mods` folder also includes files to play the game in 16:10. You will however not be able to create these files using the tool (which is only for >16:9).
 ## Credits
 TotkMods for creating [Totk.ZStdTool](https://github.com/TotkMods/Totk.ZStdTool)  
 aboood40091 for creating [SARC-Tool](https://github.com/aboood40091/SARC-Tool)  
