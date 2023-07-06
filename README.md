@@ -21,7 +21,7 @@ Compile the file `main.py` into an executable using pyinstaller and place it ins
 ## Additional note
 The `/mods` folder also includes files to play the game in 16:10. You will however not be able to create these files using the tool (which is only for >16:9).
 ## Credits
-MarethyuX for his BlackscreenFIX
+MarethyuX for his BlackscreenFIX  
 theboy181 for some of the asm-patches  
 Alerion921 for Steam Deck UI  
 Silentverge for the FOV mod  
