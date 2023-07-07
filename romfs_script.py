@@ -15,7 +15,7 @@ def patch_romfs(extracted_blarc_dir, aspect_ratio, HUD_pos):
         return hex(struct.unpack('>I', struct.pack('<f', f))[0]).lstrip('0x').rjust(8,'0')
     
     
-    blyt_folder = extracted_blarc_dir + '\\blyt'
+    blyt_folder = os.path.join(extracted_blarc_dir, 'blyt')
     file_names = os.listdir(blyt_folder)
     file_names.remove('AppMenuBG_00.bflyt')
     file_names.remove('PauseMenuBG_00.bflyt')
@@ -28,7 +28,7 @@ def patch_romfs(extracted_blarc_dir, aspect_ratio, HUD_pos):
     file_names.remove('CameraShutter_00.bflyt')
     
     for name in file_names:
-        file_loc = blyt_folder + '\\' + name
+        file_loc = os.path.join(blyt_folder, name)
         
         with open(file_loc, 'rb') as f:
             content = f.read().hex()
@@ -245,11 +245,11 @@ def patch_romfs(extracted_blarc_dir, aspect_ratio, HUD_pos):
     
     
     
-    anim_folder = extracted_blarc_dir + '\\anim'
+    anim_folder = os.path.join(extracted_blarc_dir, 'anim')
     file_names = os.listdir(anim_folder)
     
     for name in file_names:
-        file_loc = anim_folder + '\\' + name
+        file_loc = os.path.join(anim_folder, name)
         
         with open(file_loc, 'rb') as f:
             content = f.read().hex()
