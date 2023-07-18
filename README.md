@@ -15,8 +15,7 @@ This tool makes it easy to merge the UI fixes with other mods that change the `C
 ## How to build
 Compile the file `main.py` into an executable using pyinstaller and place it inside the root folder.
 ## Known issues
-* Pre-rendered cutscenes play stretched.
-* In the quest menu, part of the map is duplicated.  
+* Pre-rendered cutscenes play stretched. 
 * Pictures taken with the in-game camera are squished.
 ## Credits
 MarethyuX for his BlackscreenFIX  
