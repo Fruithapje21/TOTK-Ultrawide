@@ -218,6 +218,42 @@ def patch_romfs(extracted_blarc_dir, aspect_ratio, HUD_pos):
             content = content.replace(source_str.lower(), replace_str.lower())  
         
         if  name == 'LoadingFade_00.bflyt':
+            # Scale Pa_Map_00
+            x = float_to_hex(scaling_factor)
+            source_str = '50615F4D61705F303000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000803F'
+            replace_str = '50615F4D61705F30300000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000' + x
+            content = content.replace(source_str.lower(), replace_str.lower())
+            
+            # Scale Pa_LargeDungeonMap_00
+            x = float_to_hex(scaling_factor)
+            source_str = '50615F4C6172676544756E67656F6E4D61705F303000000000000000000000000000000000000000000000000000000000000000000000000000803F'
+            replace_str = '50615F4C6172676544756E67656F6E4D61705F30300000000000000000000000000000000000000000000000000000000000000000000000' + x
+            content = content.replace(source_str.lower(), replace_str.lower())
+            
+            # Scale Pa_Map_01
+            x = float_to_hex(scaling_factor)
+            source_str = '50615F4D61705F303100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000803F'
+            replace_str = '50615F4D61705F30310000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000' + x
+            content = content.replace(source_str.lower(), replace_str.lower())
+            
+            # Scale Pa_LargeDungeonMap_01
+            x = float_to_hex(scaling_factor)
+            source_str = '50615F4C6172676544756E67656F6E4D61705F303100000000000000000000000000000000000000000000000000000000000000000000000000803F'
+            replace_str = '50615F4C6172676544756E67656F6E4D61705F30310000000000000000000000000000000000000000000000000000000000000000000000' + x
+            content = content.replace(source_str.lower(), replace_str.lower())
+                        
+            # Scale Pa_IconPlayer_00
+            x = float_to_hex(scaling_factor)
+            source_str = '50615F49636F6E506C617965725F3030000000000000000000000000000000000000000000000000000000000000000000000000000000000000803F'
+            replace_str = '50615F49636F6E506C617965725F303000000000000000000000000000000000000000000000000000000000000000000000000000000000' + x
+            content = content.replace(source_str.lower(), replace_str.lower())
+            
+            # Scale P_SideBGDeco_00
+            x = float_to_hex(scaling_factor)
+            source_str = '505F5369646542474465636F5F303000000000000000000000000000000000000000704400001A43000000000000000000000000000000000000803F'
+            replace_str = '505F5369646542474465636F5F303000000000000000000000000000000000000000704400001A4300000000000000000000000000000000' + x
+            content = content.replace(source_str.lower(), replace_str.lower())
+            
             # Scale N_Base
             x = float_to_hex(1/scaling_factor)
             source_str = '4E5F426173655F303000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000803F'
