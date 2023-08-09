@@ -11,7 +11,7 @@ A tool that generates the necessary exefs and romfs files to play the game in cu
 ## Pre-made mods
 In case you have a common non-16:9 aspect ratio, you can likely find a pre-made version in the `/mods` folder. It curretly includes mods for 1-1, 5-4, 4-3, 3-2, 16-10, 256-135, 18-9, 19.5-9, 20-9, 21-9, 21.5-9, 32-9 and 48-9.
 ## Merging mods
-This tool makes it easy to merge the UI fixes with other mods that change the `Common.Product` file such as controller mods. Simply replace the `Common.Product` file with the one from the controller mod and run the tool as normal. Do not forget to copy over the `Font` folder to the `/TOTK-Ultrawide/.../romfs` folder created by the program.
+This tool makes it easy to merge the UI fixes with other mods that change the `Common.Product` file such as controller mods. Simply replace the `Common.Product` file with the one from the controller mod and run the tool as normal. Do not forget to copy over the `Font` folder to the `/TOTK-Ultrawide/romfs` folder created by the program.
 ## How to build
 Compile the file `main.py` into an executable using pyinstaller and place it inside the root folder.
 ## Known issues
