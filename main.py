@@ -28,7 +28,7 @@ def patch_zs(filename):
     
 sys.excepthook = myexcepthook
 
-supported_versions = ['1.0.0', '1.1.0', '1.1.1', '1.1.2', '1.2.0']
+supported_versions = ['1.0.0', '1.1.0', '1.1.1', '1.1.2', '1.2.0', '1.2.1']
 layout_filenames = ['Common.Product.100.Nin_NX_NVN', 'Common.Product.110.Nin_NX_NVN']
 working_dir = os.path.dirname(sys.argv[0])
 zsdic_path = os.path.join(working_dir, 'zs.zsdic')
