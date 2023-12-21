@@ -1,0 +1,82 @@
+@nsobid-9B4E43650501A4D4489B4BBFDB740F26AF3CF85
+
+@flag print_values
+@flag offset_shift 0x100
+
+@enabled
+03816ab4 CDCCCC3F // Aspect Ratio
+019b36f0 00502F1E // Link Menu Fix
+01ECdf68 00502F1E // Link Hestu Fix
+@stop
+
+// Scaling factor
+@enabled
+036cc5a0 E4388E3F
+@stop
+
+// NPC Marker Fix
+@enabled
+01add300 80BC6F94 // bl #0x1BEF200
+036cc500 A11F40BD // ldr s1, [x29, #0x1c]
+036cc504 E0C31FF8 // stur x0, [sp, #-4]
+036cc508 00000090 // adrp x0, #0
+036cc50c 00A045BD // ldr s0, [x0, #0x5a0]
+036cc510 E0C35FF8 // ldur x0, [sp, #-4]
+036cc514 2108201E // fmul s1, s1, s0
+036cc518 A01B40BD // ldr s0, [x29,#0x18]
+036cc51c C0035FD6 // ret
+@stop
+
+// NPC Text Balloon Fix
+@enabled
+01ae1ae4 8FAA6F94 // bl #0x1BEAA3C
+036cc520 812640BD // ldr s1, [x20, #0x24]
+036cc524 E0C31FF8 // stur x0, [sp, #-4]
+036cc528 00000090 // adrp x0, #0
+036cc52c 00A045BD // ldr s0, [x0, #0x5a0]
+036cc530 E0C35FF8 // ldur x0, [sp, #-4]
+036cc534 2108201E // fmul s1, s1, s0
+036cc538 802240BD // ldr s0, [x20, #0x20]
+036cc53c C0035FD6 // ret
+@stop
+
+// Item Description Fix
+@enabled
+01adc6f8 92BF6F94 // bl #0x1BEFE48
+036cc540 E00F40BD // ldr s0, [sp, #0xc]
+036cc544 E0C31FF8 // stur x0, [sp, #-4]
+036cc548 00000090 // adrp x0, #0
+036cc54c 01A045BD // ldr s1, [x0, #0x5a0]
+036cc550 E0C35FF8 // ldur x0, [sp, #-4]
+036cc554 0008211E // fmul s0, s0, s1
+036cc558 E10B40BD // ldr s1, [sp, #0x8]
+036cc55c C0035FD6 // ret
+@stop
+
+// Enemy Info Fix
+@enabled
+012c7bd4 63129094 // bl #0x240498C
+036cc560 010540BD // ldr s1, [x8, #0x4]
+036cc564 E0C31FF8 // stur x0, [sp, #-4]
+036cc568 00000090 // adrp x0, #0
+036cc56c 00A045BD // ldr s0, [x0, #0x5a0]
+036cc570 E0C35FF8 // ldur x0, [sp, #-4]
+036cc574 2108201E // fmul s1, s1, s0
+036cc578 000140BD // ldr s0, [x8]
+036cc57c C0035FD6 // ret
+@stop
+
+// Enemy Notice Fix
+@enabled
+012c7fbc 71119094 // bl #0x24045C4
+036cc580 010540BD // ldr s1, [x8, #0x4]
+036cc584 E0C31FF8 // stur x0, [sp, #-4]
+036cc588 00000090 // adrp x0, #0
+036cc58c 00A045BD // ldr s0, [x0, #0x5a0]
+036cc590 E0C35FF8 // ldur x0, [sp, #-4]
+036cc594 2108201E // fmul s1, s1, s0
+036cc598 000140BD // ldr s0, [x8]
+036cc59c C0035FD6 // ret
+@stop
+
+@fruithapje21
